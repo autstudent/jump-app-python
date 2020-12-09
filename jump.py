@@ -19,7 +19,7 @@ def home():
 def jump():
     if request.method == 'GET':
         print("Received GET /jump")
-        res = Response("/ - Greetings from Python!", 200)
+        res = Response("/jump - Greetings from Python!", 200)
         print(res.to_string())
         return res.to_json()
     
