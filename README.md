@@ -4,18 +4,9 @@
 
 Python Demo App is one of a set of microservices, named Jumps, developed to generate a microservice communication test tool in order to support multi hands-on and webinars around microservices in Kubernetes.
 
-## Quick Start Flask
-
-```
-$ python3 -m venv venv
-$ . venv/bin/activate
-$ pip install Flask
-...
-```
-
 ## Quick Start Python Demo App
 
-```
+```bash
 $ python3 -m venv venv
 $ . venv/bin/activate
 $ pip install -r requirements.txt
@@ -27,8 +18,17 @@ $ flask run
 
 Python Demo App included a set of test in order to check all features.
 
-```
-$ <WIP>
+```bash
+$ pytest -v
+===================================================================================== test session starts =====================================================================================
+platform darwin -- Python 3.8.2, pytest-6.1.2, py-1.9.0, pluggy-0.13.1 -- ...python-demo/venv/bin/python3
+cachedir: .pytest_cache
+rootdir: .../python-demo
+collected 2 items
+
+tests/test_jump.py::test_get_home PASSED                                                                                                                                                [ 50%]
+tests/test_jump.py::test_get_jump PASSED                                                                                                                                                [100%]
+====================================================================================== 2 passed in 0.13s ======================================================================================
 ```
 
 ## Test Python Demo App API Locally
