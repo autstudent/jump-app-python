@@ -37,7 +37,7 @@ tests/test_app.py::test_get_jump PASSED                                         
 - GET method to reach /jump
 
 ```
-$ curl localhost:5000/jump
+$ curl localhost:8080/jump
 {
     "code": 200,
     "message": "/ - Greetings from Python!"
@@ -52,9 +52,9 @@ $ curl -XPOST -H "Content-type: application/json" -v -d '{
     "last_path": "/jump",
     "jump_path": "/jump",
     "jumps": [
-        "http://localhost:5000"
+        "http://localhost:8080"
     ]
-}' 'localhost:5000/jump'
+}' 'localhost:8080/jump'
 {
     "code": 200,
     "message": "/ - Greetings from Python!"
@@ -69,10 +69,10 @@ $ curl -XPOST -H "Content-type: application/json" -v -d '{
     "last_path": "/jump",
     "jump_path": "/jump",
     "jumps": [
-        "http://localhost:5000",
-        "http://localhost:5000"
+        "http://localhost:8080",
+        "http://localhost:8080"
     ]
-}' 'localhost:5000/jump'
+}' 'localhost:8080/jump'
 {
     "code": 200,
     "message": "/ - Greetings from Python!"

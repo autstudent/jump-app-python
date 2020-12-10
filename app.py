@@ -54,4 +54,4 @@ def jump():
     return glob_res.to_json()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080)
