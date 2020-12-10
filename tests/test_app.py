@@ -1,5 +1,5 @@
 from flask import Flask, request
-from jump import app
+from app import app
 
 import json
 
