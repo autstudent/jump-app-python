@@ -36,7 +36,7 @@ def jump():
             r_data = json.dumps(r.json())
             res = json.loads(r_data, object_hook=lambda d: Response(**d))
 
-        if len(jump.jumps) == 2:
+        if len(jump.jumps) > 1:
             new_jump = jump
             new_jump.jumps = new_jump.jumps[1:]
             url = jump.jumps[0] + jump.jump_path

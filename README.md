@@ -78,3 +78,9 @@ $ curl -XPOST -H "Content-type: application/json" -v -d '{
     "message": "/ - Greetings from Python!"
 }
 ```
+
+## Author Information
+
+Asier Cidon
+
+asier.cidon@gmail.com
