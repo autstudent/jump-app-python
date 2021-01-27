@@ -81,6 +81,6 @@ $ curl -XPOST -H "Content-type: application/json" -v -d '{
 
 ## Author Information
 
-Asier Cidon
+Asier Cidon @RedHat
 
 asier.cidon@gmail.com
