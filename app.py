@@ -45,12 +45,12 @@ def jump():
         res = Response("/jump - Farewell from Python! Bad request by default", 400)
 
         react_modifier = resolve_header(headers, 'React-Modifier')
-        x_trace_id = resolve_header(headers, 'x-trace-id')
+        x_request_id = resolve_header(headers, 'x-request-id')
         
         headers_req = {'Content-Type': 'application/json; utf-8', 
             'Accept': 'application/json', 
             'React-Modifier': react_modifier,
-            'x-trace-id': x_trace_id}
+            'x-request-id': x_request_id}
 
         if len(jump.jumps) == 1:
             url = jump.jumps[0] + jump.last_path
