@@ -8,6 +8,12 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+def resolve_header(headers, key):
+    try:
+        return headers[key]
+    except:
+        return ""
+
 @app.route('/', methods=['GET'])
 def home():
     print("Received GET /")
@@ -38,10 +44,17 @@ def jump():
         jump = json.loads(str_data, object_hook=lambda d: Jump(**d))
         res = Response("/jump - Farewell from Python! Bad request by default", 400)
 
+        react_modifier = resolve_header(headers, 'React-Modifier')
+        x_trace_id = resolve_header(headers, 'x-trace-id')
+        
+        headers_req = {'Content-Type': 'application/json; utf-8', 
+            'Accept': 'application/json', 
+            'React-Modifier': react_modifier,
+            'x-trace-id': x_trace_id}
+
         if len(jump.jumps) == 1:
             url = jump.jumps[0] + jump.last_path
-            headers = {'Content-Type': 'application/json; utf-8', 'Accept': 'application/json', 'React-Modifier': headers['React-Modifier']}
-            r = requests.get(url , headers=headers)
+            r = requests.get(url , headers=headers_req)
             r_data = json.dumps(r.json())
             res = json.loads(r_data, object_hook=lambda d: Response(**d))
 
@@ -49,9 +62,8 @@ def jump():
             new_jump = jump
             new_jump.jumps = new_jump.jumps[1:]
             url = jump.jumps[0] + jump.jump_path
-            headers = {'Content-Type': 'application/json; utf-8', 'Accept': 'application/json', 'React-Modifier': headers['React-Modifier']}
             try:
-                p = requests.post(url , headers=headers, data=new_jump.to_json())
+                p = requests.post(url , headers=headers_req, data=new_jump.to_json())
                 p_data = json.dumps(p.json())
                 res = json.loads(p_data, object_hook=lambda d: Response(**d))
             except: 
