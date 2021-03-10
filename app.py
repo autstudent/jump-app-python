@@ -46,11 +46,24 @@ def jump():
 
         react_modifier = resolve_header(headers, 'React-Modifier')
         x_request_id = resolve_header(headers, 'x-request-id')
+        x_b3_traceid = resolve_header(headers, 'x-b3-traceid')
+        x_b3_spanid = resolve_header(headers, 'x-b3-spanid')
+        x_b3_parentspanid = resolve_header(headers, 'x-b3-parentspanid')
+        x_b3_sampled = resolve_header(headers, 'x-b3-sampled')
+        x_b3_flags = resolve_header(headers, 'x-b3-flags')
+        x_ot_span_context = resolve_header(headers, 'x-ot-span-context')
         
         headers_req = {'Content-Type': 'application/json; utf-8', 
             'Accept': 'application/json', 
             'React-Modifier': react_modifier,
-            'x-request-id': x_request_id}
+            'x-request-id': x_request_id,
+            'x-b3-traceid': x_b3_traceid,
+            'x-b3-spanid': x_b3_spanid,
+            'x-b3-parentspanid': x_b3_parentspanid,
+            'x-b3-sampled': x_b3_sampled,
+            'x-b3-flags': x_b3_flags,
+            'x-ot-span-context': x_ot_span_context
+        }
 
         if len(jump.jumps) == 1:
             url = jump.jumps[0] + jump.last_path
