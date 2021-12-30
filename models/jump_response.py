@@ -1,12 +1,12 @@
 import json
 
-class Response:
+class JumpResponse:
     def __init__(self, message: str, code: int):
         self.message = message
         self.code = code
 
     def to_string(self):
-        string = "Response[code: " + str(self.code) + " ,message: " + self.message + "]"
+        string = "JumpResponse[code: " + str(self.code) + " ,message: " + self.message + "]"
         return string
 
     def to_json(self):
