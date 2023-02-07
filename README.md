@@ -7,7 +7,7 @@ Python Demo App is one of a set of microservices, named Jumps, developed to gene
 ## Quick Start Python Demo App
 
 ```bash
-$ python3 -m venv venv
+$ python3 -m venv venv 
 $ . venv/bin/activate
 $ pip install -r requirements.txt
 $ export FLASK_APP=app.py
